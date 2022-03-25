@@ -13,7 +13,7 @@ public class MusicTimelineManager : MonoBehaviour
 
 
     [SerializeField]
-    private int[] randomTracks;
+    private List<int> randomTracks = new List<int>();
 
     private double timelineDuration;
     private bool chooseRandomTrack = false;
@@ -33,6 +33,15 @@ public class MusicTimelineManager : MonoBehaviour
     private void Start()
     {
         tracks = GetComponentsInChildren<Track>();
+
+        for (int i = 0; i < tracks.Length; i++)
+        {
+            if (tracks[i].additionalRandomLayer)
+            {
+                randomTracks.Add(i);
+            }
+        }
+        
         RandomTrackStart(randomTracks);
         playerHunted += FadeInOutCertainTrack;
         timelineDuration = director.duration;
@@ -64,7 +73,7 @@ public class MusicTimelineManager : MonoBehaviour
         director.Play();
     }
 
-    private void RandomTrackStart(int[] randomTrack)
+    private void RandomTrackStart(List<int> randomTrack)
     {
         foreach(int i in randomTrack)
         {
@@ -76,7 +85,7 @@ public class MusicTimelineManager : MonoBehaviour
         }
     }
 
-    private void FadeRandomTracksAtStart(int[] randomTrack)
+    private void FadeRandomTracksAtStart(List<int> randomTrack)
     {
         foreach (int i in randomTrack)
         {
@@ -90,8 +99,6 @@ public class MusicTimelineManager : MonoBehaviour
         if(InOut)tracks[trackNumber].FadeIn(fadeTime);
         if(!InOut) tracks[trackNumber].FadeOut(fadeTime);
     }
-
-
 
     
 }
