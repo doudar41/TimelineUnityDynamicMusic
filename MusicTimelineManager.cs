@@ -14,8 +14,7 @@ public class MusicTimelineManager : MonoBehaviour
 
     [SerializeField]
     private int[] randomTracks;
-    [SerializeField]
-    private AudioSource transition;
+
     private double timelineDuration;
     private bool chooseRandomTrack = false;
 
@@ -91,10 +90,7 @@ public class MusicTimelineManager : MonoBehaviour
         if(!InOut) tracks[trackNumber].FadeOut(fadeTime);
     }
 
-    private void PlayTransitionSFX()
-    {
 
-    }
 
     
 }
