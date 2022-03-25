@@ -14,6 +14,8 @@ public class Track : MonoBehaviour
     [SerializeField]
     private bool unmute = false;
 
+    public bool additionalRandomLayer = false;
+
     private void Awake()
     {
         track = GetComponent<AudioSource>();
