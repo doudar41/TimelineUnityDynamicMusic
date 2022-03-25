@@ -32,6 +32,7 @@ public class MusicTimelineManager : MonoBehaviour
 
     private void Start()
     {
+        tracks = GetComponentsInChildren<Track>();
         RandomTrackStart(randomTracks);
         playerHunted += FadeInOutCertainTrack;
         timelineDuration = director.duration;
