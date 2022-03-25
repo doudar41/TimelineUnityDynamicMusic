@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 
-
+[RequireComponent(typeof(PlayableDirector))]
 public class MusicTimelineManager : MonoBehaviour
 {
     private PlayableDirector director;
